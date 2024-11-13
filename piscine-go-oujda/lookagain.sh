@@ -1,0 +1,1 @@
+find . -type f -name "*.sh" | cut -c 3- |  rev | cut -d '/' -f 1 | rev | cut -d '.' -f 1 | sort -r

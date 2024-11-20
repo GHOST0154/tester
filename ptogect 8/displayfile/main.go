@@ -1,11 +1,25 @@
 package main
 
 import (
-	"os"
-	"fmt"
+    "fmt"
+    "os"
 )
 
 func main() {
-	args := os.Args[:1]
+    if len(os.Args) < 2 {
+        fmt.Println("File name missing")
+        return
+    }
+    args := os.Args[1]
 
+    if len(os.Args) > 2 {
+        fmt.Println("Too many Arguments")
+        return
+    }
+    contents, err := os.ReadFile(args)
+
+    if err != nil {
+        fmt.Println("Error", err)
+    } 
+        fmt.Print(string(contents))
 }
